@@ -1,0 +1,246 @@
+# Mission 1 — Character Card
+
+## Хийх зүйл
+
+Кино, anime, game эсвэл superhero дүрүүдийг харуулдаг `CharacterCard` component хийнэ.
+
+Card бүр дараах мэдээлэлтэй байна:
+
+- зураг
+- нэр
+- төрөл
+- тусгай чадвар
+- power level
+
+---
+
+## Folder structure
+
+```text
+app/
+├── page.jsx
+└── components/
+    └── CharacterCard.jsx
+```
+
+---
+
+## Алхам 1 — Component үүсгэх
+
+`components/CharacterCard.jsx` файл үүсгэ.
+
+`CharacterCard` component дараах props-уудыг хүлээн авдаг байна:
+
+- `name`
+- `type`
+- `power`
+- `level`
+- `image`
+
+Жижиг жишээ:
+
+```jsx
+<CharacterCard name="Spider-Man" type="Hero" power="Web shooting" level={85} image="..." />
+```
+
+### Checklist
+
+- [ ] `CharacterCard.jsx` файл үүсгэсэн
+- [ ] `CharacterCard` component үүсгэсэн
+- [ ] Component props хүлээн авдаг болсон
+- [ ] Бүх props-ийг дэлгэцэнд харуулсан
+
+---
+
+## Алхам 2 — Card-ийн мэдээллийг харуулах
+
+Card дотор дараах элементүүдийг байрлуул:
+
+- character image
+- character name
+- type
+- special power
+- power level
+
+Зургийн `alt` дээр character-ийн нэрийг ашигла.
+
+Жижиг жишээ:
+
+```jsx
+<img src={props.image} alt={props.name} />
+```
+
+### Checklist
+
+- [ ] Зураг харагдаж байгаа
+- [ ] Character-ийн нэр харагдаж байгаа
+- [ ] Type харагдаж байгаа
+- [ ] Special power харагдаж байгаа
+- [ ] Power level харагдаж байгаа
+
+---
+
+## Алхам 3 — Tailwind ашиглан дизайн хийх
+
+Card-аа Tailwind CSS ашиглан гоё болго.
+
+Заавал дараах зүйлсийг хий:
+
+- card-д padding өгөх
+- background color өгөх
+- border нэмэх
+- буланг дугуй болгох
+- shadow нэмэх
+- зурагны хэмжээг тохируулах
+- гарчгийг том, bold болгох
+- power level-ийг тусдаа өнгөөр ялгах
+
+Жижиг жишээ:
+
+```jsx
+className = "rounded-2xl border bg-white p-5 shadow-lg";
+```
+
+### Заавал ашиглах Tailwind class
+
+- [ ] `p-*`
+- [ ] `bg-*`
+- [ ] `text-*`
+- [ ] `rounded-*`
+- [ ] `border`
+- [ ] `shadow-*`
+- [ ] `font-bold`
+- [ ] `object-cover`
+
+---
+
+## Алхам 4 — Нэг component-ийг олон удаа ашиглах
+
+`page.jsx` дээр `CharacterCard` component-оо import хий.
+
+Хамгийн багадаа 3 өөр character card харуул.
+
+Жишээ дүрүүд:
+
+- Spider-Man
+- Batman
+- Thanos
+
+Гэхдээ өөрийн хүссэн дүрүүдийг ашиглаж болно.
+
+Card бүр өөр props-той байна.
+
+### Checklist
+
+- [ ] `CharacterCard` component-ийг import хийсэн
+- [ ] Component-ийг 3-аас доошгүй удаа ашигласан
+- [ ] Card бүр өөр нэртэй
+- [ ] Card бүр өөр зурагтай
+- [ ] Card бүр өөр мэдээлэлтэй
+
+---
+
+## Алхам 5 — Card-уудаа цэгцтэй байрлуулах
+
+Card-уудыг нэг нэгнийх нь доор биш, цэгцтэй layout-аар байрлуул.
+
+`flex` эсвэл `grid` ашиглаж болно.
+
+Жижиг жишээ:
+
+```jsx
+className = "flex flex-wrap justify-center gap-6";
+```
+
+эсвэл
+
+```jsx
+className = "grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3";
+```
+
+### Checklist
+
+- [ ] `flex` эсвэл `grid` ашигласан
+- [ ] Card-уудын хооронд зайтай
+- [ ] Card-ууд төвдөө эсвэл цэгцтэй байрласан
+- [ ] Жижиг дэлгэц дээр эвдэрч харагдахгүй
+
+---
+
+# Level 2 — Өөрийн character нэмэх
+
+Дөрөв дэх character card нэм.
+
+Дараах төрлүүдээс сонгож болно:
+
+- movie character
+- anime character
+- game character
+- superhero
+- villain
+
+### Checklist
+
+- [ ] Дөрөв дэх character нэмсэн
+- [ ] Шинэ component үүсгээгүй
+- [ ] Өмнөх `CharacterCard` component-ийг дахин ашигласан
+- [ ] Шинэ props дамжуулсан
+
+---
+
+# Level 3 — Props-оор өнгө өөрчлөх
+
+`CharacterCard` component-д `theme` props нэм.
+
+`theme` props-оос хамаарч card-ийн өнгө өөрчлөгддөг болго.
+
+Жижиг жишээ:
+
+```jsx
+const cardColor = props.theme === "red" ? "border-red-300 bg-red-50" : "border-blue-300 bg-blue-50";
+```
+
+Дараа нь үүнийг card-ийн `className` дотор ашигла.
+
+### Checklist
+
+- [ ] `theme` props нэмсэн
+- [ ] Хамгийн багадаа 2 өөр theme ашигласан
+- [ ] Card-ийн background өнгө props-оос хамаарч өөрчлөгддөг
+- [ ] Card-ийн border өнгө props-оос хамаарч өөрчлөгддөг
+
+---
+
+# Bonus Challenge
+
+Дараах нэмэлтүүдээс сонгон хий:
+
+- [ ] Card дээр hover effect нэмэх
+- [ ] Hover хийхэд card дээш хөдөлдөг болгох
+- [ ] Hover хийхэд shadow томордог болгох
+- [ ] Hero болон Villain-д өөр badge хийх
+- [ ] Power level-ээс хамаарч өнгө өөрчлөх
+- [ ] Character-ийн зураг дээр border нэмэх
+- [ ] Card дээр button нэмэх
+- [ ] Responsive grid ашиглах
+
+Hover-ийн жижиг жишээ:
+
+```jsx
+className = "transition hover:-translate-y-2 hover:shadow-2xl";
+```
+
+---
+
+# Нийт checklist
+
+- [ ] `CharacterCard` component үүсгэсэн
+- [ ] Props ашигласан
+- [ ] Нэг component-ийг олон удаа ашигласан
+- [ ] Хамгийн багадаа 3 card хийсэн
+- [ ] Tailwind CSS ашигласан
+- [ ] Card бүр өөр мэдээлэлтэй
+- [ ] Card-уудыг `flex` эсвэл `grid` ашиглан байрлуулсан
+- [ ] Level 2 хийсэн
+- [ ] Level 3 хийсэн
+w- [ ] Bonus-аас хамгийн багадаа нэгийг хийсэн
