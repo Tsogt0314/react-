@@ -1,7 +1,26 @@
+import { supabase } from "../supabaseClient";
+
 export function UserCard(props) {
   const { user, users, setUsers } = props;
 
-  function handleSave() {
+  async function handleSave() {
+    const { isSave, ...userData } = user;
+
+    const { error } = await supabase.from("saved_users").upsert(
+      {
+        id: user.id,
+        user_data: userData,
+      },
+      {
+        onConflict: "id",
+      },
+    );
+
+    if (error) {
+      console.error("Error saving user:", error);
+      return;
+    }
+
     const newUsers = users.map((mapUser) => {
       if (mapUser.id === user.id) {
         return { ...mapUser, isSave: true };
